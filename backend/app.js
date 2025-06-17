@@ -80,7 +80,7 @@ app.use((err, req, res, next) => {
     error: process.env.NODE_ENV === 'development' ? err.message : undefined
   });
 });
-const PORT = process.env.PORT || 10000;
+const PORT = process.env.PORT; //|| 10000;
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
