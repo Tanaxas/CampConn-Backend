@@ -29,7 +29,8 @@ exports.registerInitiate = async (req, res) => {
     }
 
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
-    const expiresAt = new Date(Date.now() + 10 * 60 * 1000).toISOString();
+    const expiresAt = new Date(Date.now() + 10 * 60 * 1000).toISOString().slice(0, 19)
+  .replace('T', ' ');
 
     await pool.execute('INSERT INTO otps (email, otp, type, expires_at) VALUES (?, ?, ?, ?)', [email, otp, 'registration', expiresAt]);
 
