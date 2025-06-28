@@ -4,6 +4,8 @@ const path = require('path');
 require('dotenv').config();
 const session = require('express-session');
 const MySQLStore = require('express-mysql-session')(session); // ✅ Add MySQL session store
+const fs = require('fs');
+
 
 
 
