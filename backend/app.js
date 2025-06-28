@@ -30,8 +30,8 @@ app.use(logRequest);
 
 // Middleware
 app.use(cors({
-  origin: process.env.FRONTEND_ORIGIN || 'http://localhost:3000', // your frontend origin
-  credentials: true, // allow cookies to be sent
+  origin: 'https://campusconnect-gilt.vercel.app', // your frontend origin
+  credentials: true // allow cookies to be sent
 }));
 
 app.use(express.json());
