@@ -57,7 +57,7 @@ exports.registerComplete = async (req, res) => {
     const { email, otp } = req.body;
 
     const [otpRecords] = await pool.execute(
-      'SELECT * FROM otps WHERE email = ? AND otp = ? AND type = ? AND expires_at > UTC_TIMESTAMP() ORDER BY created_at DESC LIMIT 1',
+      'SELECT * FROM otps WHERE email = ? AND otp = ? AND type = ? AND expires_at < UTC_TIMESTAMP() ORDER BY created_at DESC LIMIT 1',
       [email, otp, 'registration']
     );
 
